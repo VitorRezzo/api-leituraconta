@@ -1,13 +1,13 @@
 import express, { Request, Response } from "express";
 import http from "http";
 import dotenv from "dotenv";
-
+import { route } from "./router/routes";
 dotenv.config();
 
 const app = express();
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
-
+app.use(route);
 const HOST = process.env.HOST || "localhost";
 const PORT = process.env.PORT || 4000;
 
